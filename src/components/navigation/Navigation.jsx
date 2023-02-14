@@ -3,27 +3,25 @@ import {
   Container,
   Wrapper,
   Left,
-  Center,
   Right,
-  SearchContainer,
-  Language,
-  Input,
   Logo,
   MenuItem,
-  Search,
   LinkTo,
 } from "./navigation.style";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { Outlet } from "react-router-dom";
 import { UserContext } from "context/user.context";
 import { signOutUser } from "utils/firebase/auth";
 import CartIcon from "components/cartIcon/CartIcon";
 import CartDropdown from "components/cartDropdown/CartDropdown";
-import { CartContext } from "context/cart.context";
+
+import { selectCurrentUser } from "redux/user/userSlector";
+import { useSelector } from "react-redux";
+import { selectIsCartOpen } from "redux/cart/cartSlector";
 
 export default function Navigation() {
-  const { currentUser } = useContext(UserContext);
-  const { isCartOpen } = useContext(CartContext);
+  const currentUser = useSelector(selectCurrentUser);
+  const isCartOpen = useSelector(selectIsCartOpen);
+
   ///////////////////////////////////////////////////////////
   return (
     <Container>

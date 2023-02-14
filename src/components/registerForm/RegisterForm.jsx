@@ -9,6 +9,7 @@ import { createUserDocumentFromAuth } from "utils/firebase/database";
 import { Container, Title, Span, Form } from "./registerForm.style";
 import { UserContext } from "context/user.context";
 import { useNavigate } from "react-router-dom";
+
 const defaultFormFields = {
   displayName: "",
   email: "",
@@ -21,6 +22,7 @@ const RegisterForm = () => {
   const { displayName, email, password, confirmPassword } = formFields;
   const { currentUser } = useContext(UserContext);
   const nav = useNavigate();
+
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
@@ -55,12 +57,16 @@ const RegisterForm = () => {
 
     setFormFields({ ...formFields, [name]: value });
   };
+
   ////////////////////////////  nav to home page after sign in /////////////////////////////////////
   useEffect(() => {
     if (currentUser) {
       nav("/");
     }
   }, [currentUser]);
+
+  ////////////////////////////  UI /////////////////////////////////////
+
   return (
     <Container>
       <Title>Don't have an account?</Title>

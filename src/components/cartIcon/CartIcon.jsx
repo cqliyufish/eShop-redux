@@ -1,14 +1,22 @@
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import { Badge } from "@material-ui/core";
-import React, { useContext } from "react";
+import React from "react";
 
-import { CartContext } from "context/cart.context";
+import { setIsCartOpen } from "redux/cart/cartAction";
+import { selectCartCount, selectIsCartOpen } from "redux/cart/cartSlector";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function CartIcon() {
-  const { setCartOpen, cartCount } = useContext(CartContext);
+  const dispatch = useDispatch();
+
+  const isCartOpen = useSelector(selectIsCartOpen);
+  const cartCount = useSelector(selectCartCount);
+
+  const toggleIsCartOpen = () => dispatch(setIsCartOpen(!isCartOpen));
+
   return (
     <Badge badgeContent={cartCount} color="primary">
-      <ShoppingCartOutlinedIcon onClick={() => setCartOpen((prev) => !prev)} />
+      <ShoppingCartOutlinedIcon onClick={toggleIsCartOpen} />
     </Badge>
   );
 }
