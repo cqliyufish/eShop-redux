@@ -5,9 +5,9 @@ import Button from "components/button/Button";
 
 import { createAuthUserWithEmailAndPassword } from "utils/firebase/auth";
 import { createUserDocumentFromAuth } from "utils/firebase/database";
-
+import { selectCurrentUser } from "redux/user/userSlector";
+import { useSelector } from "react-redux";
 import { Container, Title, Span, Form } from "./registerForm.style";
-import { UserContext } from "context/user.context";
 import { useNavigate } from "react-router-dom";
 
 const defaultFormFields = {
@@ -20,8 +20,8 @@ const defaultFormFields = {
 const RegisterForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
-  const { currentUser } = useContext(UserContext);
   const nav = useNavigate();
+  const currentUser = useSelector(selectCurrentUser);
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);

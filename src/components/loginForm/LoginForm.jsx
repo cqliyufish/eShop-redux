@@ -1,14 +1,14 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import FormInput from "components/formInput/FormInput";
 import Button from "components/button/Button";
-
+import { selectCurrentUser } from "redux/user/userSlector";
+import { useSelector } from "react-redux";
 import {
   signInWithGooglePopup,
   signInAuthUserWithEmailAndPassword,
 } from "utils/firebase/auth";
 import { Container, Form, Title, Span, BtnContainer } from "./loginForm.style";
-import { UserContext } from "context/user.context";
 import { useNavigate } from "react-router-dom";
 const defaultFormFields = {
   email: "",
@@ -18,7 +18,7 @@ const defaultFormFields = {
 export default function LoginForm() {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
-  const { currentUser } = useContext(UserContext);
+  const currentUser = useSelector(selectCurrentUser);
   const nav = useNavigate();
   ////////////////////////////  input change /////////////////////////////////////
 

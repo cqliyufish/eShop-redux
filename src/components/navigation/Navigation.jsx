@@ -9,7 +9,6 @@ import {
   LinkTo,
 } from "./navigation.style";
 import { Outlet } from "react-router-dom";
-import { UserContext } from "context/user.context";
 import { signOutUser } from "utils/firebase/auth";
 import CartIcon from "components/cartIcon/CartIcon";
 import CartDropdown from "components/cartDropdown/CartDropdown";
