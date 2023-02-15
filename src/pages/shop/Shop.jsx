@@ -3,12 +3,12 @@ import Category from "pages/category/Category";
 import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { fetchCategoriesStartAsync } from "redux/category/categoryAction";
+import { getCategories } from "redux/category/getCategoryCall";
 
 export default function Shop() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchCategoriesStartAsync());
+    getCategories(dispatch);
   }, [dispatch]);
 
   return (

@@ -8,7 +8,7 @@ import {
   selectCartTotal,
 } from "redux/cart/cartSlector";
 import { useDispatch, useSelector } from "react-redux";
-import { setIsCartOpen } from "redux/cart/cartAction";
+import { setIsCartOpen } from "redux/cart/cartReducer";
 const Checkout = () => {
   const dispatch = useDispatch();
 

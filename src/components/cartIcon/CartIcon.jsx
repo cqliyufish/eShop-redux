@@ -2,7 +2,7 @@ import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import { Badge } from "@material-ui/core";
 import React from "react";
 
-import { setIsCartOpen } from "redux/cart/cartAction";
+import { setIsCartOpen } from "redux/cart/cartReducer";
 import { selectCartCount, selectIsCartOpen } from "redux/cart/cartSlector";
 import { useDispatch, useSelector } from "react-redux";
 

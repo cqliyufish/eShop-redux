@@ -8,9 +8,8 @@ import {
   selectIsLoading,
 } from "redux/category/categorySlector";
 export default function CategoriesPreview() {
-  const isLoading = useSelector(selectIsLoading);
   const categoriesMap = useSelector(selectCategoriesMap);
-
+  const isLoading = useSelector(selectIsLoading);
   return (
     <Container>
       {isLoading ? (

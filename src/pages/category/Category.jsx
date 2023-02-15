@@ -12,8 +12,9 @@ import Spinner from "components/spinner/Spinner";
 
 export default function Category() {
   const { category } = useParams();
-  const categoriesMap = useSelector(selectCategoriesMap);
   const isLoading = useSelector(selectIsLoading);
+
+  const categoriesMap = useSelector(selectCategoriesMap);
 
   const [products, setProducts] = useState(categoriesMap[category]);
 
