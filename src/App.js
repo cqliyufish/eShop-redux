@@ -18,7 +18,8 @@ function App() {
       if (user) {
         createUserDocumentFromAuth(user); //get user ref
       }
-      dispatch(setCurrentUser(user));
+      const pickUser = ({ accessToken, email }) => ({ accessToken, email });
+      dispatch(setCurrentUser(pickUser(user)));
     });
     return unsubscribe; //do clear
   }, [dispatch]);
